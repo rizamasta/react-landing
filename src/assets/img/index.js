@@ -1,0 +1,7 @@
+export { default as AudiLogo } from './audi.svg'
+export { default as BmwLogo } from './bmw.svg'
+export { default as MazdaLogo } from './mazda.svg'
+export { default as SuzukiLogo } from './suzuki.svg'
+export { default as ToyotaLogo } from './toyota.svg'
+export { default as VwLogo } from './vw.svg'
+export { default as CartecLogo } from './cartech-logo.svg'
