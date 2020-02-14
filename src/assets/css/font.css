@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:regular,bold,italic&subset=latin,latin-ext");
+
+body,p,a,span {
+    font-family: 'Muli'
+  }
+a{
+    text-decoration: none;
+}
+.centered {
+    height: auto;/* Magic here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
