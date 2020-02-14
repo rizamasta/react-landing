@@ -1,11 +1,12 @@
 import { NotFound } from '../pages/index'
+import { Home } from '../pages/home';
 
 const routes = [
     {
         path: "/",
         pageTitle: 'Home',
         exact: true,
-        component: NotFound,
+        component: Home,
     },
     {
         path: "/users/login",

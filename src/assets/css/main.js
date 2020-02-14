@@ -10,8 +10,11 @@ export const DARK = {
     borderColor: grey[800]
 }
 
+export const COLUMN_CENNTER = { display: 'flex', flexDirection: 'column', alignItems: 'center' }
+
 export const COLOR = {
     red: "#ff6559",
+    darkGrey: "#bfbfbf"
 }
 
 export const BOLD = {

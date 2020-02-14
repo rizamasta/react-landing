@@ -7,6 +7,7 @@ import Link from '@material-ui/core/Link';
 import { Grid } from '@material-ui/core';
 import { BOLD, COLOR } from '../../../assets/css/main';
 import { Sparator } from '../index';
+import { grey } from '@material-ui/core/colors';
 
 function Copyright() {
     return (
@@ -23,7 +24,7 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
     footer: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: grey[200],
         // marginTop: theme.spacing(8),
         padding: theme.spacing(6, 0),
     },
@@ -35,7 +36,7 @@ export default function Footer(props) {
 
     return (
         <footer className={classes.footer}>
-            <Grid container spacing={10} justify="center">
+            <Grid container justify="center">
                 <Grid item lg={10}>
                     <Grid container spacing={5}>
                         <Grid item md={4}>
@@ -74,7 +75,7 @@ export default function Footer(props) {
                     </Grid>
                 </Grid>
             </Grid>
-            <Container maxWidth="lg">
+            <Container>
                 <Typography variant="h6" align="center" gutterBottom>
                     {title}
                 </Typography>

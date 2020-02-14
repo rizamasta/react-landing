@@ -14,19 +14,18 @@ class Default extends React.Component {
                         <Header />
                     </Grid>
                     <Grid item lg={12}>
-                        <main style={{ minHeight: 800 }}>
+                        <main style={{ minHeight: 800, marginTop: 40 }}>
                             <Switch>
                                 {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                             </Switch>
                         </main>
                     </Grid>
                     <Grid item lg={12}>
-                        <div style={{ position: 'relative', bottom: 0, width: '100%' }} >
+                        <div style={{ position: 'relative', bottom: 0 }} >
                             <Footer />
                         </div>
                     </Grid>
                 </Grid>
-
             </div>
         )
     }
