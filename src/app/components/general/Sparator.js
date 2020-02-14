@@ -9,21 +9,21 @@ export default class Sparator extends React.Component {
         let height = 10;
         let style = { border: "1px solid ", borderLeft: 0, borderTop: 0, borderBottom: 0, borderRightColor: grey[500], width: 10, marginRight: 10 };
         if (type) {
-            if (type == "horizontal") {
+            if (type === "horizontal") {
                 style = { border: "1px solid ", borderLeft: 0, borderTop: 0, borderRight: 0, borderBottomColor: grey[500], height: height, marginBottom: height };
             }
-            else if (type == "vertical") {
+            else if (type === "vertical") {
                 style = { border: "1px solid ", borderLeft: 0, borderTop: 0, borderBottom: 0, borderRightColor: grey[500], width: width, marginRight: width };
             }
-            else if (type = "horizontal-spacing") {
+            else if (type === "horizontal-spacing") {
                 style = { height: height, marginBottom: height };
             }
-            else if (type = "vertical-spacing") {
+            else if (type === "vertical-spacing") {
                 style = { width: width, marginRight: width };
             }
         }
         return (
-            <div style={style}>a</div>
+            <div style={style}></div>
         )
     }
 }

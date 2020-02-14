@@ -1,23 +1,11 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import grey from '@material-ui/core/colors/grey';
-import Button from '@material-ui/core/Button';
-import SortIcon from '@material-ui/icons/Sort';
+import { AppBar, Toolbar, Grid, IconButton, InputBase, MenuItem, Button, Menu } from '@material-ui/core';
+import { Search as SearchIcon, Sort as SortIcon, More as MoreIcon } from '@material-ui/icons';
+import { grey } from '@material-ui/core/colors';
 import cartech from "../../../assets/img/cartech-logo.svg";
-import Grid from '@material-ui/core/Grid';
 import { BUTTON_OVAL, DARK } from '../../../assets/css/main';
 import Sparator from '../general/Sparator';
 
@@ -82,9 +70,9 @@ export default function PrimaryAppBar() {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-    const handleProfileMenuOpen = event => {
-        setAnchorEl(event.currentTarget);
-    };
+    // const handleProfileMenuOpen = event => {
+    //     setAnchorEl(event.currentTarget);
+    // };
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
@@ -127,38 +115,31 @@ export default function PrimaryAppBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
+                Masuk
+                {/* <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
                     </Badge>
                 </IconButton>
-                <p>Messages</p>
+                <p>Messages</p> */}
             </MenuItem>
             <MenuItem>
-                <IconButton aria-label="show 11 new notifications" color="inherit">
+                <Link to="/users/register">
+                    Daftar
+                </Link>
+                {/* <IconButton aria-label="show 11 new notifications" color="inherit">
                     <Badge badgeContent={11} color="secondary">
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
+                <p>Notifications</p> */}
             </MenuItem>
         </Menu>
     );
 
     return (
         <div >
-            <AppBar position="fixed" color="default" style={{ backgroundColor: "white" }}>
+            <AppBar position="absolute" color="default" style={{ backgroundColor: "white", top: 0, bottom: 'auto', position: 'fixed' }} >
                 <Toolbar>
                     <Grid
                         container
@@ -170,7 +151,9 @@ export default function PrimaryAppBar() {
                         <Grid item lg={1}></Grid>
                         <Grid item lg={2} className={classes.title}>
                             <Grid container justify="center">
-                                <img src={cartech} style={{ marginRight: 50 }} />
+                                <Link to="/" className="centered">
+                                    <img alt="Cartech Logo" src={cartech} style={{ marginRight: 50 }} />
+                                </Link>
                                 <Button startIcon={<SortIcon style={{ marginRight: 10 }} />} style={{ textTransform: 'capitalize' }}>Topik</Button>
                             </Grid>
                         </Grid>
@@ -191,23 +174,17 @@ export default function PrimaryAppBar() {
                             <Grid container justify="flex-end" alignItems="center">
                                 <div className={classes.grow} />
                                 <div className={classes.sectionDesktop}>
-                                    <Button style={BUTTON_OVAL}>
-                                        Masuk
+                                    <Link to="/users/login">
+                                        <Button style={BUTTON_OVAL}>
+                                            Masuk
                                     </Button>
+                                    </Link>
                                     <Sparator type="vertical" width={10} />
-                                    <Button style={{ ...BUTTON_OVAL, ...DARK }}>
-                                        Daftar
+                                    <Link to="/users/register">
+                                        <Button style={{ ...BUTTON_OVAL, ...DARK }}>
+                                            Daftar
                                     </Button>
-                                    {/* <IconButton
-                                        edge="end"
-                                        aria-label="account of current user"
-                                        aria-controls={menuId}
-                                        aria-haspopup="true"
-                                        onClick={handleProfileMenuOpen}
-                                        color="inherit"
-                                    >
-                                        <AccountCircle />
-                                    </IconButton> */}
+                                    </Link>
                                 </div>
                                 <div className={classes.sectionMobile}>
                                     <IconButton

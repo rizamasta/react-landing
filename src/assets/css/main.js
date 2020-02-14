@@ -9,3 +9,11 @@ export const DARK = {
     backgroundColor: grey[800],
     borderColor: grey[800]
 }
+
+export const COLOR = {
+    red: "#ff6559",
+}
+
+export const BOLD = {
+    fontWeight: "bold"
+}

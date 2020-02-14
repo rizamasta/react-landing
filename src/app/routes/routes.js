@@ -1,14 +1,33 @@
-import { Blog, NotFound } from '../pages/index'
+import { NotFound } from '../pages/index'
+
 const routes = [
     {
         path: "/",
         pageTitle: 'Home',
         exact: true,
-        component: NotFound
+        component: NotFound,
+    },
+    {
+        path: "/users/login",
+        pageTitle: 'Masuk Sekarang',
+        exact: true,
+        component: NotFound,
+    },
+    {
+        path: "/users/register",
+        pageTitle: 'Daftar Sekarang',
+        exact: true,
+        component: NotFound,
+    },
+    {
+        path: "/company/register",
+        pageTitle: 'Daftarkan Perusahaan Anda',
+        exact: true,
+        component: NotFound,
     },
     {
         pageTitle: 'Page Not Found',
-        component: NotFound
+        component: NotFound,
     }
 ];
 const empty = [
