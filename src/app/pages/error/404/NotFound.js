@@ -6,7 +6,7 @@ const NotFound = () => (
             <div className="face"></div>
         </div>
         <div className="shadow"></div>
-        <h1>Whoops!</h1> <p> If you can't see anything, please go away! </p>
+        <h1>Whoops!</h1> <p> ERROR 404. Page Not Found! </p>
     </div>
 );
 export default NotFound;

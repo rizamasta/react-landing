@@ -1,5 +1,4 @@
-import { NotFound } from '../pages/index'
-import { Home } from '../pages/home';
+import { NotFound, Home, UserRegister, UserLogin } from '../pages'
 
 const routes = [
     {
@@ -7,18 +6,7 @@ const routes = [
         pageTitle: 'Home',
         exact: true,
         component: Home,
-    },
-    {
-        path: "/users/login",
-        pageTitle: 'Masuk Sekarang',
-        exact: true,
-        component: NotFound,
-    },
-    {
-        path: "/users/register",
-        pageTitle: 'Daftar Sekarang',
-        exact: true,
-        component: NotFound,
+
     },
     {
         path: "/company/register",
@@ -29,15 +17,23 @@ const routes = [
     {
         pageTitle: 'Page Not Found',
         component: NotFound,
+        exact: true
     }
 ];
 const empty = [
-    // {
-    //     path: "/signin",
-    //     pageTitle: 'Sing in',
-    //     exact: true,
-    //     component: Signin
-    // }
+    {
+        path: "/users/register",
+        pageTitle: 'Daftar Sekarang',
+        exact: true,
+        component: UserRegister,
+    },
+    {
+        path: "/users/login",
+        pageTitle: 'Masuk Sekarang',
+        exact: true,
+        component: UserLogin,
+    },
+
     // , {
     //     path: "/signup",
     //     exact: true,

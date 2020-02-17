@@ -63,7 +63,7 @@ export default class Home extends React.Component {
                             </div>
                         </div>
                     </Grid>
-                    <Grid lg={12} style={{ backgroundColor: grey[200] }}>
+                    <Grid item lg={12} style={{ backgroundColor: grey[200] }}>
                         <Grid container justify="center" direction="row" alignItems="flex-start">
                             <Grid item lg={10}>
                                 <Grid container justify="center" direction="row" alignItems="flex-start">

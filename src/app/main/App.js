@@ -21,14 +21,14 @@ function App() {
       <BrowserRouter>
         <Switch>
           {
-            routes.map((value, i) => {
-              console.log(value)
-              return <Route key={i} exec={value.exact || false} path={value.path} component={Default} />
+            empty.map((value, i) => {
+              return <Route key={i + "e"} exec path={value.path} component={EmptyLayout} />
             })
           }
           {
-            empty.map((value, i) => {
-              return <Route key={i + "e"} exec={value.exact || false} path={value.path} component={EmptyLayout} />
+            routes.map((value, i) => {
+              console.log(value)
+              return <Route key={i} exec path={value.path} component={Default} />
             })
           }
         </Switch>
