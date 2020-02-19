@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../../../assets/css/login/util.css';
-import '../../../../assets/css/login/main.css';
+import 'assets/css/login/util.css';
+import 'assets/css/login/main.css';
 
-import { CartecLogo } from '../../../../assets/img';
+import { CartecLogo } from 'assets/img';
 import { grey } from '@material-ui/core/colors';
 export default class UserRegister extends React.Component {
     render() {

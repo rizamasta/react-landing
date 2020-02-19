@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch } from "react-router-dom";
 import { routes } from '../routes/routes';
-import { RouteWithSubRoutes } from '../routes/RouteWithSubRoutes';
-import { Header, Footer } from '../components';
+import { RouteWithSubRoutes } from 'app/routes';
+import { Header, Footer } from 'app/components';
 import { Grid } from '@material-ui/core';
 
 class Default extends React.Component {
