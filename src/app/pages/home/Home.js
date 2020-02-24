@@ -4,6 +4,7 @@ import { COLOR, BOLD, COLUMN_CENNTER, BUTTON_OVAL, DARK } from '../../../assets/
 import { Link } from "react-router-dom";
 import { grey } from '@material-ui/core/colors';
 import { MazdaLogo, BmwLogo, VwLogo, SuzukiLogo, AudiLogo, ToyotaLogo } from '../../../assets/img';
+import { UserSession } from 'app/utils';
 
 const overview = [
     {
@@ -49,8 +50,21 @@ const companies = [
         alt: "Mazda Logo",
         image: MazdaLogo
     }
-]
+];
 export default class Home extends React.Component {
+    componentWillMount() {
+        UserSession.initData(v => {
+            if (v) {
+                //user logged in
+            }
+            else {
+                // user not login
+            }
+        });
+
+        //cara panggil di setiap tempat tinggal pake
+        // UserSession.data
+    }
     render() {
         return (
             <React.Fragment>
