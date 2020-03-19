@@ -1,2 +1,2 @@
-export { default as Default } from './Default'
-export { default as EmptyLayout } from './Empty'
+export { default as Main } from "./Main";
+export { default as EmptyLayout } from "./Empty";

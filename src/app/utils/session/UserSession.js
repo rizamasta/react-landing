@@ -1,79 +1,51 @@
-import { decorate, observable, action } from 'mobx';
-import { getItem, setItem, removeItem } from 'app/utils';
-
+import { decorate, observable, action } from "mobx";
+import { getItem, setItem, General } from "app/utils";
+import { RequestGet } from "../general/HttpClient";
+import { clearAll } from "../general/Storage";
 
 class UserSession {
+  data = null;
+  setData(val) {
+    this.data = val;
+    setItem("access_token", val.access_token);
+    setItem("session_timeout", val.session_timeout);
+    setItem("list_lob", JSON.stringify(val.list_lob));
+    setItem("default_lob", val.default_lob);
+  }
 
-    data = null;
-    setData(val) {
-        setItem("session", val).then((v) => {
-            if (v) {
-                getItem("session").then((s) => {
-                    if (s) {
-                        this.data = s;
-                        return true;
-                    }
-                    else {
-                        this.data = null;
-                        return false;
-                    }
-                }).catch((err) => {
-                    return false;
-                })
-            }
-        }).catch((e) => {
-            return false;
-        })
+  initData = () => {
+    if (getItem("access_token")) {
+      this.data = {
+        access_token: getItem("access_token"),
+        session_timeout: getItem("session_timeout")
+      };
+      return this.data;
+    } else {
+      return null;
     }
+  };
 
-    initData = async (data) => {
-        await this.getData();
-        data = this.data;
-        return data;
-    }
-
-    getData() {
-        if (this.data) {
-            console.log("Direct UserSession", true);
-            return this.data;
+  destroy = async isLogout => {
+    await RequestGet("logout")
+      .then(r => {
+        if (r) {
+          General.setMenu(null);
+          clearAll();
+          isLogout = true;
+        } else {
+          isLogout = false;
         }
-        else {
-            getItem("session").then((s) => {
-                if (s) {
-                    this.data = s;
-                    return this.data;
-                }
-                else {
-                    this.data = null;
-                    return false;
-                }
-            }).catch((err) => {
-                return false;
-            })
-        }
-    }
+      })
+      .catch(e => {
+        console.log(e);
+        isLogout = false;
+      });
 
-    destroy = async (isLogout) => {
-        await removeItem("session").then((v) => {
-            if (v) {
-                this.data = null;
-                isLogout = true;
-            }
-            else {
-                isLogout = true;
-            }
-            return true;
-        }).catch((e) => {
-            isLogout = true;
-        })
-        return isLogout;
-
-    }
-
+    return isLogout;
+  };
 }
 const userSession = decorate(UserSession, {
-    data: observable,
-    destroy: action
+  data: observable,
+  destroy: action
 });
-export default new userSession;
-
+export default new userSession();
